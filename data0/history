@@ -1,0 +1,10 @@
+eth.accounts
+eth.getBlock()
+eth.getBlock(0)
+eth.getBlock(1)
+eth.blockNumber
+admin.nodeInfo
+net.peerCount
+eth.accounts
+eth.getBalance(0x0a9a494149166d404b998e4a09cae814a88fce35)
+eth.getBalance("0x0a9a494149166d404b998e4a09cae814a88fce35")
