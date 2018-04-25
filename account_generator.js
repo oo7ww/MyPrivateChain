@@ -47,9 +47,9 @@ MongoClient.connect(url, function(err, db){
 		console.log("collection created");
 	});
 //	var account_file = Adrsgenerator(num);
-	dbase.collection('AccountDB').insertMany(account_file, function(err, res){
+	dbase.collection('AccountDB').insertMany(account_file, function(err, db){
         if(err) throw err;
-        console.log("inserted files count: " + res.insertedCount);		
+        console.log("inserted files");		
 	});
 	db.close();
 });
