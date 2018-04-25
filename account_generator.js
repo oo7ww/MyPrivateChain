@@ -31,7 +31,7 @@ var url = 'mongodb://127.0.0.1:27017/AccountDB';
 
 var num = 100;
 var account_file = Adrsgenerator(num);
-console.log(account_file.size());
+console.log(account_file.length);
 MongoClient.connect(url, function(err, db){
 	assert.equal(null, err);
 	console.log("Connect to db server successfully");
