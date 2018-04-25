@@ -50,4 +50,4 @@ MongoClient.connect(url, function(db, callback){
     insertDocument(db, account_file, function(){
         db.close();
     });
-};
+});
