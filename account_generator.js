@@ -36,12 +36,12 @@ MongoClient.connect(url, function(err, db){
 	console.log("Connect to db server successfully");
 	var dbase = db.db("AccountDB");
 	dbase.createCollection('account', function(err, res){
-		if(err) throw err;
+		assert.equal(null, err);
 		console.log("collection created");
 	});
 //	var account_file = Adrsgenerator(num);
 	dbase.collection('AccountDB').insertMany(account_file, function(err, res){
-        if (err) throw err;
+        assert.equal(null, err);
         console.log("inserted files count: " + res.insertedCount);		
 	});
 	db.close();
