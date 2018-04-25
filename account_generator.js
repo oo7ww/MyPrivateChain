@@ -50,6 +50,7 @@ MongoClient.connect(url, function(err, db){
 	dbase.collection('AccountDB').insertMany(account_file, function(err, db){
         if(err) throw err;
         console.log("inserted files");		
-	});
 	db.close();
+	});
+	//db.close();
 });
