@@ -31,11 +31,12 @@ var url = 'mongodb://127.0.0.1:27017/AccountDB';
 
 var num = 100;
 var account_file = Adrsgenerator(num);
+console.log(account_file.size());
 MongoClient.connect(url, function(err, db){
 	assert.equal(null, err);
 	console.log("Connect to db server successfully");
 	var dbase = db.db("AccountDB");
-	dbase.createCollection('account', function(err, res){
+	dbase.createCollection('account', function(err){
 		assert.equal(null, err);
 		console.log("collection created");
 	});
