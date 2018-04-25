@@ -45,7 +45,7 @@ var num = 100;
 var account_file = Adrsgenerator(num);
 //console.log(account_file.length);
 
-MongoClient.connect(url, function(db, callback){
+MongoClient.connect(url, function(err, db){
     assert.equal(null, err);
     insertDocument(db, account_file, function(){
         db.close();
