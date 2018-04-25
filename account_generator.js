@@ -17,8 +17,9 @@ function Adrsgenerator(x) {
 			var address = new_account.address;
                         var privateKey = new_account.privateKey;
 			accounts[address] = privateKey;
-                        console.log(address + ' ' + privateKey + '\n');
+                        //console.log(address + ' ' + privateKey + '\n');
 		}
+		console.log(address + ' ' + privateKey + '\n');
 		return accounts;
 	}
 };
