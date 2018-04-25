@@ -26,6 +26,15 @@ function Adrsgenerator(x) {
 	}
 };
 
+var insertDocument = function(db, array, callback){
+    db.collection('account').insertOne(array, 
+	function(err, result){
+            assert.equal(err, null);
+	    console.log('Inserted');
+	    callback();
+        });
+};
+
 //mongodb connection
 var MongoClient = require('mongodb').MongoClient;
 var assert = require('assert');
@@ -36,21 +45,9 @@ var num = 100;
 var account_file = Adrsgenerator(num);
 //console.log(account_file.length);
 
-MongoClient.connect(url, function(err, db){
-	//assert.equal(null, err);
-	if(err) throw err;
-	console.log("Connect to db server successfully");
-	var dbase = db.db("AccountDB");
-	dbase.createCollection('account', function(err, db){
-		//assert.equal(null, err);
-		if(err) throw err;
-		console.log("collection created");
-	});
-//	var account_file = Adrsgenerator(num);
-	dbase.collection('AccountDB').insertOne(account_file, function(err, db){
-        if(err) throw err;
-        console.log("inserted files");		
-	db.close();
-	});
-	//db.close();
-});
+MongoClient.connect(url, function(db, callback){
+    assert.equal(null, err);
+    insertDocument(db, account_file, function(){
+        db.close();
+    });
+};
