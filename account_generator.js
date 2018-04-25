@@ -34,7 +34,8 @@ var url = 'mongodb://127.0.0.1:27017/AccountDB';
 
 var num = 100;
 var account_file = Adrsgenerator(num);
-console.log(account_file.length);
+//console.log(account_file.length);
+
 MongoClient.connect(url, function(err, db){
 	//assert.equal(null, err);
 	if(err) throw err;
@@ -47,7 +48,7 @@ MongoClient.connect(url, function(err, db){
 	});
 //	var account_file = Adrsgenerator(num);
 	dbase.collection('AccountDB').insertMany(account_file, function(err, res){
-        assert.equal(null, err);
+        if(err) throw err;
         console.log("inserted files count: " + res.insertedCount);		
 	});
 	db.close();
