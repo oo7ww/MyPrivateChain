@@ -48,7 +48,7 @@ var account_file = Adrsgenerator(num);
 MongoClient.connect(url, function(err, db){
     assert.equal(null, err);
     var db = db.db('AccountDB');
-    var collections = db,collection('account');
+    var collections = db.collection('account');
     insertDocument(db, account_file, function(){
         db.close();
     });
