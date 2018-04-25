@@ -33,11 +33,13 @@ var num = 100;
 var account_file = Adrsgenerator(num);
 console.log(account_file.length);
 MongoClient.connect(url, function(err, db){
-	assert.equal(null, err);
+	//assert.equal(null, err);
+	if(err) throw err;
 	console.log("Connect to db server successfully");
 	var dbase = db.db("AccountDB");
-	dbase.createCollection('account', function(err){
-		assert.equal(null, err);
+	dbase.createCollection('account', function(err, db){
+		//assert.equal(null, err);
+		if(err) throw err;
 		console.log("collection created");
 	});
 //	var account_file = Adrsgenerator(num);
